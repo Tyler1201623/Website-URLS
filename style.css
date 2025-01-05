@@ -1,7 +1,7 @@
 * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* Ultra-Modern Design System */
@@ -17,8 +17,8 @@
 /* Immersive Background */
 body {
     background: radial-gradient(circle at 50% 50%, 
-      #2a0845 0%, 
-      #1a1a1a 100%);
+        #2a0845 0%, 
+        #1a1a1a 100%);
     min-height: 100vh;
     perspective: 1000px;
     overflow-x: hidden;
@@ -32,15 +32,9 @@ body {
 /* Dynamic Container */
 .container {
     transform-style: preserve-3d;
-    animation: float 20s infinite ease-in-out;
     padding: 2rem;
     width: 100%;
     max-width: 1200px;
-}
-
-@keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
@@ -57,293 +51,130 @@ h1 {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     padding: 1rem;
+    width: 100%;
 }
 
 /* Futuristic Cards */
 .url-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow-soft);
-  transform-style: preserve-3d;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  border-radius: 15px;
-  padding: 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    pointer-events: auto;
+    z-index: 1;
 }
 
 .url-card:hover {
-  transform: 
-  translateY(-20px) 
-  rotateX(10deg) 
-  rotateY(10deg) 
-  scale(1.05);
-background: linear-gradient(
-  135deg,
-  rgba(255, 255, 255, 0.1),
-  rgba(255, 255, 255, 0.05)
-);
-border-color: var(--neon-blue);
-box-shadow: 
-  var(--shadow-strong),
-  0 0 20px rgba(0, 198, 255, 0.2);
+    transform: translateY(-5px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
 }
 
-.url-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
-  width: 100%;
-}
-
-/* Adjust text colors for better visibility */
 .url-card h2 {
-  color: #ffffff;
-  text-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
-  opacity: 0.9;
-}
-
-/* For larger screens, optimize the 7-card layout */
-@media screen and (min-width: 1367px) {
-  .url-container {
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 1200px;
-      margin: 0 auto;
-  }
-}.url-card h2::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50px;
-    height: 2px;
-    background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
 }
 
 /* 3D Button Effects */
 .url-card a {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-  color: #ffffff;  /* This ensures white text color */
-  text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);  /* Adds subtle text depth */
-  position: relative;
-  z-index: 1;
-  cursor: pointer;
-  pointer-events: auto;
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: auto;
 }
 
 .url-card a:hover {
-transform: translateY(-5px) scale(1.05);
-background: linear-gradient(45deg, #00c6ff, #7b2ff7);
-box-shadow: 0 6px 20px rgba(0, 198, 255, 0.5);
+    transform: translateY(-5px) scale(1.05);
+    background: linear-gradient(45deg, #00c6ff, #7b2ff7);
+    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.5);
 }
 
-.url-card {
-    position: relative;
-    z-index: 0;
-}
-
-/* Particle Effects */
-.url-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(
-    45deg,
-    transparent,
-    rgba(0, 198, 255, 0.1),
-    transparent
-  );
-  transform: rotate(0deg);
-    animation: particleRotate 10s linear infinite;
-}
-
-/* Advanced Animations */
-@keyframes float {
-    0%, 100% { transform: translateY(0) rotateX(0); }
-    50% { transform: translateY(-20px) rotateX(2deg); }
-}
-
-@keyframes particleRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Responsive Enhancements */
-@media (min-width: 1024px) {
+/* Responsive Design */
+@media screen and (max-width: 320px) {
+    .container {
+        padding: 0.5rem;
+    }
+    
     .url-container {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      padding: 2rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .url-card {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .url-card a {
+        padding: 0.6rem 1.2rem;
     }
 }
 
-/* Interactive Hover States */
-.url-card:hover h2 {
-    transform: translateZ(50px);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-}
-
-/* Glass Morphism Effects */
-.container::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
-    pointer-events: none;
-}
-
-/* Enhanced Responsive Grid System */
-.url-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 1rem;
-      width: 100%;
-}
-
-/* Small Mobile Devices (320px and up) */
-@media screen and (max-width: 320px) {
-      .container {
-          padding: 0.5rem;
-      }
-    
-      .url-container {
-          grid-template-columns: 1fr;
-          gap: 1rem;
-      }
-    
-      .url-card {
-          padding: 1rem;
-      }
-    
-      h1 {
-          font-size: 1.5rem;
-          margin-bottom: 1.5rem;
-      }
-    
-      .url-card a {
-          padding: 0.6rem 1.2rem;
-      }
-}
-
-/* Regular Mobile Devices (321px - 480px) */
 @media screen and (min-width: 321px) and (max-width: 480px) {
-      .container {
-          padding: 0.8rem;
-      }
+    .container {
+        padding: 0.8rem;
+    }
     
-      .url-container {
-          grid-template-columns: 1fr;
-          gap: 1.2rem;
-      }
+    .url-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
 }
 
-/* Large Mobile Devices (481px - 768px) */
 @media screen and (min-width: 481px) and (max-width: 768px) {
-      .url-container {
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      }
+    .url-container {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
 }
 
-/* Tablets (769px - 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-      .url-container {
-          grid-template-columns: repeat(2, 1fr);
-      }
+    .url-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Small Laptops (1025px - 1366px) */
 @media screen and (min-width: 1025px) and (max-width: 1366px) {
-      .url-container {
-          grid-template-columns: repeat(3, 1fr);
-      }
+    .url-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
-/* Large Laptops and Desktops (1367px and up) */
 @media screen and (min-width: 1367px) {
-      .url-container {
-          grid-template-columns: repeat(4, 1fr);
-      }
-}
-
-/* Landscape Mode Optimization */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-      .container {
-          padding: 1rem;
-      }
-    
-      h1 {
-          margin-bottom: 1rem;
-      }
-    
-      .url-container {
-          gap: 1rem;
-      }
-    
-      .url-card {
-          padding: 1rem;
-      }
+    .url-container {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 }
 
 /* High-DPI Screens */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      .url-card {
-          border-width: 0.5px;
-      }
-}
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-      .url-card {
-          background: rgba(255, 255, 255, 0.05);
-      }
+    .url-card {
+        border-width: 0.5px;
+    }
 }
 
 /* Smooth Scrolling */
 html {
-      scroll-behavior: smooth;
-}
-
-/* Loading Animation */
-@keyframes shimmer {
-      0% { background-position: -1000px 0; }
-      100% { background-position: 1000px 0; }
-}
-
-.ripple {
-      position: absolute;
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      background-color: rgba(255, 255, 255, 0.7);
-      width: 100px;
-      height: 100px;
-      pointer-events: none;
-}
-
-@keyframes ripple {
-      to {
-          transform: scale(4);
-          opacity: 0;
-      }
+    scroll-behavior: smooth;
 }
