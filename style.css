@@ -45,15 +45,11 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     letter-spacing: 2px;
 }
-
 .url-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
-    padding: 1rem;
-    width: 100%;
 }
-
 /* Futuristic Cards */
 .url-card {
     background: var(--glass-bg);
