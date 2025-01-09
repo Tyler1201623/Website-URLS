@@ -34,7 +34,8 @@ body {
     transform-style: preserve-3d;
     padding: 2rem;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 h1 {
@@ -45,64 +46,90 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     letter-spacing: 2px;
 }
+
+/* Update the container styles */
+.container {
+    transform-style: preserve-3d;
+    padding: 2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Enhanced grid layout */
 .url-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 1rem;
 }
-/* Futuristic Cards */
+
+/* Improved card styling */
 .url-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(15px);
     border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    padding: 2rem;
+    border-radius: 20px;
+    padding: 2.5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease;
-    pointer-events: auto;
-    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
 .url-card:hover {
-    transform: translateY(-5px);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.15),
+        rgba(255, 255, 255, 0.08));
 }
 
+/* Enhanced card title */
 .url-card h2 {
     color: #ffffff;
-    text-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.8rem;
+    text-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+    letter-spacing: 1px;
 }
 
-/* 3D Button Effects */
+/* Enhanced button styling */
 .url-card a {
     display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, var(--neon-primary), var(--neon-secondary));
     color: #ffffff;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 30px;
     font-weight: bold;
+    letter-spacing: 1px;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 2;
-    cursor: pointer;
-    pointer-events: auto;
 }
 
-.url-card a:hover {
-    transform: translateY(-5px) scale(1.05);
-    background: linear-gradient(45deg, #00c6ff, #7b2ff7);
-    box-shadow: 0 6px 20px rgba(0, 198, 255, 0.5);
+/* Updated responsive breakpoints */
+@media screen and (max-width: 1200px) {
+    .url-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-/* Responsive Design */
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 768px) {
+    .url-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .url-card {
+        padding: 2rem;
+    }
+}@media screen and (max-width: 320px) {
     .container {
         padding: 0.5rem;
     }
@@ -123,43 +150,6 @@ h1 {
     
     .url-card a {
         padding: 0.6rem 1.2rem;
-    }
-}
-
-@media screen and (min-width: 321px) and (max-width: 480px) {
-    .container {
-        padding: 0.8rem;
-    }
-    
-    .url-container {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-    }
-}
-
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    .url-container {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    .url-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (min-width: 1025px) and (max-width: 1366px) {
-    .url-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media screen and (min-width: 1367px) {
-    .url-container {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1200px;
-        margin: 0 auto;
     }
 }
 
