@@ -6,27 +6,36 @@
 
 /* Ultra-Modern Design System */
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.15);
     --neon-primary: #ff6b6b;
     --neon-secondary: #ff8e53;
     --depth-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     --text-glow: 0 0 10px rgba(255, 255, 255, 0.5);
+    --primary-gradient: linear-gradient(135deg, #6e8efb, #ff9f9f);
+    --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    --neon-glow: 0 0 20px rgba(110, 142, 251, 0.7);
 }
 
 /* Immersive Background */
 body {
-    background: radial-gradient(circle at 50% 50%, 
-        #2a0845 0%, 
-        #1a1a1a 100%);
+    background: linear-gradient(225deg, #000428, #004e92);
+    animation: gradientShift 15s ease infinite;
     min-height: 100vh;
     perspective: 1000px;
     overflow-x: hidden;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', system-ui, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Dynamic Container */
@@ -36,58 +45,67 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
-    color: #ffffff;
     text-align: center;
-    margin-bottom: 3rem;
-    font-size: clamp(1.8rem, 5vw, 2.5rem);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 4rem;
+    font-size: clamp(2rem, 5vw, 3.5rem);
     letter-spacing: 2px;
 }
 
-/* Update the container styles */
-.container {
-    transform-style: preserve-3d;
-    padding: 2rem;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+h1:not(.emoji) {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow);
+}
+
+.emoji {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 /* Enhanced grid layout */
 .url-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
+    perspective: 1000px;
 }
 
 /* Improved card styling */
 .url-card {
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.1) 0%,
-        rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(15px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border-radius: 25px;
     text-align: center;
     position: relative;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 200px; /* Fixed height for all cards */
+    min-height: 250px;
     width: 100%;
-    padding: 2rem;
+    padding: 2.5rem;
+    transform-style: preserve-3d;
 }
 
 .url-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+    transform: translateY(-15px) rotateX(5deg);
+    box-shadow: var(--neon-glow);
+    border-color: rgba(255, 255, 255, 0.3);
     background: linear-gradient(135deg,
         rgba(255, 255, 255, 0.15),
         rgba(255, 255, 255, 0.08));
@@ -96,34 +114,64 @@ h1 {
 /* Enhanced card title */
 .url-card h2 {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    text-shadow: 0 0 20px rgba(0, 198, 255, 0.5);
+    text-shadow: var(--text-shadow);
     letter-spacing: 1px;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
+    transform: translateZ(20px);
 }
 
 /* Enhanced button styling */
 .url-card a {
     display: inline-block;
-    padding: 1rem 2rem;
-    background: linear-gradient(45deg, var(--neon-primary), var(--neon-secondary));
+    padding: 1.2rem 2.5rem;
+    background: var(--primary-gradient);
     color: #ffffff;
     text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    letter-spacing: 1px;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
     box-shadow: 0 5px 20px rgba(255, 107, 107, 0.4);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     width: 80%;
     margin: 0 auto;
+    position: relative;
+    overflow: hidden;
 }
+
+.url-card a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.url-card a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.url-card a:hover::before {
+    left: 100%;
+}
+
 /* Updated responsive breakpoints */
 @media screen and (max-width: 1200px) {
     .url-container {
@@ -135,12 +183,16 @@ h1 {
     .url-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 1rem;
     }
     
     .url-card {
         padding: 2rem;
+        min-height: 200px;
     }
-}@media screen and (max-width: 320px) {
+}
+
+@media screen and (max-width: 320px) {
     .container {
         padding: 0.5rem;
     }
@@ -174,4 +226,19 @@ h1 {
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
 }
