@@ -90,7 +90,7 @@ a {
     max-width: 800px;
     justify-content: center;
     height: 100%;
-    padding-bottom: 80px;
+    gap: 1.5rem;
 }
 
 /* New title arrangement */
@@ -98,7 +98,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
     position: relative;
 }
 
@@ -145,23 +145,23 @@ a {
 .tagline {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     color: var(--text-dim);
-    margin-bottom: 0;
     max-width: 600px;
     text-align: center;
     font-weight: 300;
     letter-spacing: 0.5px;
-    transform: translateY(-8px);
     background: linear-gradient(to right, var(--text-dim), white, var(--text-dim));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     position: relative;
     z-index: 3;
+    padding: 0 1rem;
+    margin-bottom: 4rem;
 }
 
 .scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 2.5rem;
     left: 0;
     right: 0;
     display: flex;
@@ -170,17 +170,16 @@ a {
     color: var(--text-dim);
     animation: bounce 2s ease infinite;
     z-index: 2;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-20px);}
-    60% {transform: translateY(-10px);}
-}
-
-.scroll-indicator i {
-    margin-top: 0.5rem;
-    font-size: 1.5rem;
+.scroll-indicator span {
+    margin-bottom: 0.3rem;
 }
 
 /* Container styles */
@@ -472,7 +471,9 @@ footer {
 
 @media (max-width: 768px) {
     .hero-content {
-        padding-bottom: 100px;
+        padding-top: 5rem;
+        padding-bottom: 6rem;
+        justify-content: flex-start;
     }
     
     .hero h1 {
@@ -486,8 +487,7 @@ footer {
     }
     
     .tagline {
-        margin-bottom: 0;
-        font-size: clamp(1rem, 3vw, 1.5rem);
+        margin-bottom: 6rem;
     }
     
     .scroll-indicator {
@@ -507,9 +507,9 @@ footer {
 
 @media (max-width: 480px) {
     .hero-content {
-        padding-bottom: 120px;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
         justify-content: flex-start;
-        padding-top: 25vh;
     }
     
     .hero h1 {
@@ -522,13 +522,12 @@ footer {
     }
     
     .tagline {
+        margin-bottom: 7rem;
         font-size: 1rem;
-        margin-bottom: 0;
-        padding: 0 0.5rem;
     }
     
     .scroll-indicator {
-        bottom: 4rem;
+        bottom: 3.5rem;
     }
     
     .url-container {
@@ -550,19 +549,81 @@ footer {
     }
 }
 
-/* Fix for extra small devices */
-@media (max-height: 600px) {
+/* Extra adjustments for very small screens */
+@media (max-height: 700px) and (max-width: 480px) {
     .hero-content {
-        padding-top: 15vh;
-        padding-bottom: 100px;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
     }
     
     .title-wrapper {
-        margin-bottom: 1rem;
+        margin-bottom: 0;
+    }
+    
+    .tagline {
+        margin-bottom: 8rem;
+        font-size: 0.9rem;
+    }
+    
+    .scroll-indicator {
+        bottom: 2rem;
+        font-size: 0.9rem;
+    }
+    
+    .scroll-indicator i {
+        font-size: 1.2rem;
+    }
+}
+
+/* Specific fix for landscape mode on mobile */
+@media (max-height: 500px) {
+    .hero-content {
+        padding-top: 1rem;
+    }
+    
+    .title-wrapper {
+        margin-bottom: 0;
+    }
+    
+    .tagline {
+        margin-bottom: 4rem;
+    }
+    
+    .hero h1 {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+    
+    .star-left, .star-right {
+        font-size: clamp(1rem, 2vw, 1.3rem);
+    }
+}
+
+/* Special handling for iPhone 5/SE size */
+@media (max-height: 570px) and (max-width: 320px) {
+    .hero-content {
+        padding-top: 2rem;
+    }
+    
+    .title-wrapper {
+        margin-bottom: 0;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+        margin-bottom: 5rem;
     }
     
     .scroll-indicator {
         bottom: 1.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .scroll-indicator i {
+        font-size: 1rem;
     }
 }
 
