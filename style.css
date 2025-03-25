@@ -88,6 +88,9 @@ a {
     flex-direction: column;
     align-items: center;
     max-width: 800px;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 80px;
 }
 
 /* New title arrangement */
@@ -142,7 +145,7 @@ a {
 .tagline {
     font-size: clamp(1.2rem, 3vw, 1.8rem);
     color: var(--text-dim);
-    margin-bottom: 6rem;
+    margin-bottom: 0;
     max-width: 600px;
     text-align: center;
     font-weight: 300;
@@ -152,6 +155,8 @@ a {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    position: relative;
+    z-index: 3;
 }
 
 .scroll-indicator {
@@ -164,6 +169,7 @@ a {
     align-items: center;
     color: var(--text-dim);
     animation: bounce 2s ease infinite;
+    z-index: 2;
 }
 
 @keyframes bounce {
@@ -465,9 +471,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero-content {
+        padding-bottom: 100px;
+    }
+    
     .hero h1 {
         font-size: clamp(2.5rem, 6vw, 4rem);
         margin: 0 0.3rem;
+        margin-bottom: 1rem;
     }
     
     .star-left, .star-right {
@@ -475,7 +486,12 @@ footer {
     }
     
     .tagline {
-        margin-bottom: 5rem;
+        margin-bottom: 0;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+    
+    .scroll-indicator {
+        bottom: 3rem;
     }
     
     .url-container {
@@ -490,6 +506,12 @@ footer {
 }
 
 @media (max-width: 480px) {
+    .hero-content {
+        padding-bottom: 120px;
+        justify-content: flex-start;
+        padding-top: 25vh;
+    }
+    
     .hero h1 {
         font-size: clamp(2.2rem, 5vw, 3rem);
         padding: 0.3rem 0.5rem;
@@ -501,7 +523,12 @@ footer {
     
     .tagline {
         font-size: 1rem;
-        margin-bottom: 4rem;
+        margin-bottom: 0;
+        padding: 0 0.5rem;
+    }
+    
+    .scroll-indicator {
+        bottom: 4rem;
     }
     
     .url-container {
@@ -520,6 +547,22 @@ footer {
     
     .card-content {
         padding: 1.5rem;
+    }
+}
+
+/* Fix for extra small devices */
+@media (max-height: 600px) {
+    .hero-content {
+        padding-top: 15vh;
+        padding-bottom: 100px;
+    }
+    
+    .title-wrapper {
+        margin-bottom: 1rem;
+    }
+    
+    .scroll-indicator {
+        bottom: 1.5rem;
     }
 }
 
