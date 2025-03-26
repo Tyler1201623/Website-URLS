@@ -105,7 +105,11 @@ a {
 .hero h1 {
     font-size: clamp(3rem, 7vw, 5.5rem);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--accent-1), var(--primary), var(--accent-2));
+    background: linear-gradient(135deg, 
+        rgba(226, 232, 240, 1),  /* Softer white */
+        rgba(203, 213, 225, 0.95),  /* Light cool gray */
+        rgba(226, 232, 240, 1)  /* Softer white */
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -113,14 +117,17 @@ a {
     margin: 0 0.5rem;
     padding: 0.5rem 1rem;
     position: relative;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-shadow: 
+        0 2px 8px rgba(226, 232, 240, 0.15),
+        0 4px 15px rgba(203, 213, 225, 0.1);
+    -webkit-text-stroke: 0.5px rgba(226, 232, 240, 0.08);
 }
 
 /* Star emoji styling */
 .star-left, .star-right {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     line-height: 1;
-    filter: drop-shadow(0 0 15px rgba(124, 58, 237, 0.8));
+    filter: drop-shadow(0 0 15px rgba(226, 232, 240, 0.25));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,8 +144,14 @@ a {
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.9); opacity: 0.7; }
-    100% { transform: scale(1.1); opacity: 1; }
+    0% { 
+        transform: scale(0.9); 
+        opacity: 0.6; 
+    }
+    100% { 
+        transform: scale(1.1); 
+        opacity: 0.9; 
+    }
 }
 
 /* Enhanced tagline */
@@ -692,5 +705,24 @@ html {
 @keyframes fadeInPage {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* Add a subtle background glow behind the title */
+.title-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle,
+        rgba(226, 232, 240, 0.06) 0%,
+        rgba(203, 213, 225, 0.03) 40%,
+        transparent 70%
+    );
+    filter: blur(20px);
+    z-index: -1;
 }
 
